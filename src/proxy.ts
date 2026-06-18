@@ -1,0 +1,18 @@
+import { type NextRequest } from "next/server";
+import { updateSession } from "@/lib/supabase/proxy";
+
+export async function proxy(request: NextRequest) {
+  return await updateSession(request);
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Auf alle Pfade matchen, außer:
+     * - _next/static (Statische Dateien)
+     * - _next/image (Bild-Optimierung)
+     * - favicon, robots, sitemap, Bilder
+     */
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
+};
