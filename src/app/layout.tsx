@@ -11,6 +11,9 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "VOX — Bürgertelefon",
   description: "Interne Koordination des Bürgertelefons im Krisenfall.",
+  // Internes Werkzeug — nicht für Suchmaschinen bestimmt. Schützt insbesondere
+  // die Token-Antwortlinks (/antworten/[token]) vor Indexierung.
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
