@@ -76,6 +76,7 @@ Browser ──HTTPS──> Next.js (SSR) ──intern──> Kong ──> Postgr
 - **Fachstellen-Token:** 192-Bit-Zufallstoken, 7 Tage gültig, First-Answer-Wins.
 - **Gesperrte Behörde:** `aktuelle_behoerde_id()` liefert NULL → harte DB-seitige Sperre.
 - **Content-Security-Policy:** nonce-basiert pro Request; zusätzlich HSTS, `X-Frame-Options`, `X-Content-Type-Options`, Referrer-/Permissions-Policy.
+- **Keine Suchmaschinen-Indexierung:** global `noindex, nofollow` (internes Werkzeug) — hält insbesondere die Token-Antwortseiten aus Suchmaschinen heraus.
 - **Profil-Schutz:** ein Trigger verhindert Selbst-Eskalation (eigene Rolle, Behörde oder Plattform-Admin-Flag).
 
 ## Lokales Setup
